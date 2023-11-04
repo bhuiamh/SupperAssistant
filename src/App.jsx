@@ -1,18 +1,16 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { useDrag } from "react-dnd";
-
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import BrilliantQuestion from "./components/BrilliantQuestion";
+import Navbar from "./components/Navbar";
 function App() {
   return (
-    <div>
-      <img
-        src="https://media.licdn.com/dms/image/D4E0BAQG-i2j7Q2WFIA/company-logo_200_200/0/1694593111703/img_logo?e=2147483647&v=beta&t=GXoH1LXt9jy32BZy9mCLWxerKUmdGB6xCQStyv7hi34"
-        alt=""
-      />
-      <h1 className="font-bold text-8xl">Hello Tailwind</h1>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <Navbar></Navbar>
+      <div>
+        <h1 className="font-bold text-8xl">Hello Tailwind</h1>
+      </div>
+      <BrilliantQuestion></BrilliantQuestion>
+    </DndProvider>
   );
 }
 
