@@ -6,9 +6,6 @@ function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <Navbar></Navbar>
-      <div>
-        <h1 className="font-bold text-8xl">Hello Tailwind</h1>
-      </div>
       <BrilliantQuestion></BrilliantQuestion>
     </DndProvider>
   );
