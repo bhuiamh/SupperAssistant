@@ -2,6 +2,12 @@ import React, { useRef, useState } from "react";
 import { FaEllipsisV, FaRegListAlt, FaUnderline } from "react-icons/fa";
 
 const FillInTheGap = () => {
+  const [addAGap, setAddAGap] = useState(false);
+
+  const handleAddGap = () => {
+    setAddAGap(true);
+  };
+
   const editorRef = useRef(null);
   const [underlinedWords, setUnderlinedWords] = useState(["Word"]);
   const [inputText, setInputText] = useState("");
@@ -30,16 +36,22 @@ const FillInTheGap = () => {
   };
 
   return (
-    <div className="mx-16 my-7 min-h-[40vh] border-[#008060] border-4">
+    <div className="mx-16 my-7 min-h-[40vh] border-4 border-[#008060] group hover:border-orange-500">
       <div className="p-5">
         <div className="flex items-center justify-between">
-          <h1 className="font-bold text-2xl gap-1 flex items-center text-[#008060]">
+          <h1 className="font-bold text-2xl gap-1 flex items-center text-[#008060] group-hover:text-orange-500">
             <FaRegListAlt /> Question Type 2
           </h1>
-          <button>
-            <FaEllipsisV />
+
+          <button
+            onClick={handleAddGap}
+            className="hidden group-hover:block text-xl font-bold text-orange-500 hover:text-orange-700"
+          >
+            <span className="text-[#008060] text-2xl font-bold">+</span> Add a
+            Question
           </button>
         </div>
+
         <div className="flex justify-center">
           <div>
             <h1 className="text-xl font-semibold my-1">Reserved Word</h1>
@@ -68,17 +80,19 @@ const FillInTheGap = () => {
               </button>
             </div>
 
-            <div
-              ref={editorRef}
-              contentEditable
-              style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-                minHeight: "200px",
-              }}
-              placeholder={inputText || "Type your text here..."}
-              onInput={handleInput}
-            ></div>
+            {addAGap ? (
+              <div
+                ref={editorRef}
+                contentEditable
+                style={{
+                  border: "1px solid #ccc",
+                  padding: "10px",
+                  minHeight: "200px",
+                }}
+                placeholder={inputText || "Type your text here..."}
+                onInput={handleInput}
+              ></div>
+            ) : null}
           </div>
         </div>
       </div>

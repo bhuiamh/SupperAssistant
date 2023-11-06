@@ -1,18 +1,35 @@
-import React from "react";
-import { FaEllipsisV, FaGripHorizontal, FaRegListAlt } from "react-icons/fa";
+import React, { useState } from "react";
+import {
+  FaEllipsisV,
+  FaGripHorizontal,
+  FaPlus,
+  FaRegListAlt,
+} from "react-icons/fa";
 
 const CategoryType = () => {
+  const [addOption, setAddOption] = useState(false);
+
+  const handleAddOption = () => {
+    setAddOption(true);
+  };
+
   return (
-    <div className="mx-16 my-7 min-h-[40vh] border-[#008060] border-4">
+    <div className="mx-16 my-7 min-h-[40vh] border-4 border-[#008060] group hover:border-orange-500">
       <div className="p-5">
         <div className="flex items-center justify-between">
-          <h1 className="font-bold text-2xl gap-1 flex items-center text-[#008060]">
+          <h1 className="font-bold text-2xl gap-1 flex items-center text-[#008060] group-hover:text-orange-500">
             <FaRegListAlt /> Question Type 1
           </h1>
-          <button>
-            <FaEllipsisV />
+
+          <button
+            onClick={handleAddOption}
+            className="hidden group-hover:block text-xl font-bold text-orange-500 hover:text-orange-700"
+          >
+            <span className="text-[#008060] text-2xl font-bold">+</span> Add a
+            Question
           </button>
         </div>
+
         <div className="flex">
           <div className="m-3">
             <div>
@@ -30,11 +47,13 @@ const CategoryType = () => {
                   <FaGripHorizontal />
                   <span className="btn w-[320px] btn-outlined">Nepal</span>
                 </button>
-                <input
-                  type="text"
-                  placeholder="Add a Country"
-                  className="ml-5 input border-[#008060] w-full max-w-xs mt-1"
-                />
+                {addOption ? (
+                  <input
+                    type="text"
+                    placeholder="Add a Country"
+                    className="ml-5 input border-[#008060] w-full max-w-xs mt-1"
+                  />
+                ) : null}
               </div>
             </div>
           </div>
@@ -54,11 +73,13 @@ const CategoryType = () => {
                   <FaGripHorizontal />
                   <span className="btn w-[320px] btn-outlined">Kathmandu</span>
                 </button>
-                <input
-                  type="text"
-                  placeholder="Add a Capital"
-                  className="ml-5 input border-[#008060] w-full max-w-xs mt-1"
-                />
+                {addOption ? (
+                  <input
+                    type="text"
+                    placeholder="Add a Capital"
+                    className="ml-5 input border-[#008060] w-full max-w-xs mt-1"
+                  />
+                ) : null}
               </div>
             </div>
           </div>
@@ -78,11 +99,13 @@ const CategoryType = () => {
                   <FaGripHorizontal />
                   <span className="btn w-[320px] btn-outlined">Pokhara</span>
                 </button>
-                <input
-                  type="text"
-                  placeholder="Add a your Zone"
-                  className="ml-5 input border-[#008060] w-full max-w-xs mt-1"
-                />
+                {addOption ? (
+                  <input
+                    type="text"
+                    placeholder="Add a Zone"
+                    className="ml-5 input border-[#008060] w-full max-w-xs mt-1"
+                  />
+                ) : null}
               </div>
             </div>
           </div>
