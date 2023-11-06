@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
-      <div className="navbar-start">
+      <Link to="/" className="navbar-start">
         <button className="btn bg-transparent  normal-case text-[#008060] hover:border-[#008060] font-extrabold text-2xl">
           Supper
           <span className="text-black">Assistant</span>
         </button>
-      </div>
+      </Link>
 
       <div className="navbar-end space-x-4">
         <Link

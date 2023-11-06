@@ -16,7 +16,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="mx-4 text-light p-5 mt-8 border-2 border-[#008060]">
+    <footer className="mx-16 text-light p-5 mt-8 border-2 border-[#008060]">
       <div className="container flex flex-wrap items-center justify-between">
         <div className="w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
           <div className="flex flex-col">

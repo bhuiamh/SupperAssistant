@@ -15,7 +15,7 @@ const ComprehensionAnswer = () => {
     setSelectedOption(optionId);
   };
   return (
-    <div className="mx-16 my-7 min-h-[40vh] border-4 border-[#008060]">
+    <div className="mx-16 my-7 min-h-[40vh] border-2 border-[#008060]">
       <div className="p-5">
         <div className="flex items-center justify-between">
           <h1 className="font-bold text-2xl gap-1 flex items-center text-[#008060]">
