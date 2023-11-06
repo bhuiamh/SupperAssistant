@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaEllipsisV, FaRegListAlt, FaUnderline } from "react-icons/fa";
+import { FaRegListAlt, FaUnderline } from "react-icons/fa";
+import SortableList, { SortableItem } from "react-easy-sort";
+import { arrayMoveImmutable } from "array-move";
 
-const FillInTheGap = () => {
+const FillInTheGap = ({ gap, getGapCategory }) => {
   const [addAGap, setAddAGap] = useState(false);
 
   const handleAddGap = () => {
@@ -45,11 +47,17 @@ const FillInTheGap = () => {
     setRealText(text);
     detectRegX(text);
   };
-  console.log("i==>", inputText);
 
   useEffect(() => {
     detectRegX(realText);
+    getGapCategory(realText, underlinedWords);
   }, [underlinedWords, inputText]);
+
+  const onSortUnderlines = (oldIndex, newIndex) => {
+    setUnderlinedWords((array) =>
+      arrayMoveImmutable(array, oldIndex, newIndex)
+    );
+  };
 
   return (
     <div className="mx-16 my-7 min-h-[40vh] border-2 border-[#008060] group hover:border-orange-500">
@@ -75,17 +83,21 @@ const FillInTheGap = () => {
               <div className="w-[600px] min-h-16 border-2 border-[#008060] border-solid flex m-1 gap-1">
                 <div className="flex-grow items-center">
                   {/* Fill in the word show in here as button */}
-                  {underlinedWords?.length ? (
-                    underlinedWords?.map((word) => (
-                      <button key={word} className="btn normal-case m-1">
-                        {word}
-                      </button>
-                    ))
-                  ) : (
-                    <h1 className="mt-2 text-center">
-                      All underline words will be shown here..
-                    </h1>
-                  )}
+                  <SortableList onSortEnd={onSortUnderlines}>
+                    {underlinedWords?.length ? (
+                      underlinedWords?.map((word, i) => (
+                        <SortableItem key={i}>
+                          <button className="btn normal-case m-1">
+                            {word}
+                          </button>
+                        </SortableItem>
+                      ))
+                    ) : (
+                      <h1 className="mt-2 text-center">
+                        All underline words will be shown here..
+                      </h1>
+                    )}
+                  </SortableList>
                 </div>
               </div>
             </div>

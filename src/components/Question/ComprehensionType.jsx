@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaEllipsisV, FaRegListAlt } from "react-icons/fa";
 
-const ComprehensionType = () => {
+const ComprehensionType = ({ mcq }) => {
   const [addComprehension, setAddComprehension] = useState(false);
 
   const handleAddComprehension = () => {
