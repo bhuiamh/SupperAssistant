@@ -9,12 +9,14 @@ const Question = () => {
   return (
     <div>
       <Navbar />
+
       <h1 className="text-3xl font-bold text-center">
         Create your own Question
       </h1>
       <p className="text-center">
         Test your knowledge with this custom question.
       </p>
+
       <CategoryType />
       <FillInTheGap />
       <ComprehensionType />

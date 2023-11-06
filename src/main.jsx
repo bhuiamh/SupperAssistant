@@ -7,6 +7,7 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import Question from "./components/Question.jsx";
 import WelcomePage from "./components/WelcomePage.jsx";
 import Answer from "./components/Answer/Answer.jsx";
+import QuizCompletion from "./components/QuizCompletion.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/answer",
         element: <Answer />,
+      },
+      {
+        path: "/QuizCompletion",
+        element: <QuizCompletion />,
       },
     ],
   },

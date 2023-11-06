@@ -4,17 +4,15 @@ import CategoryAnswer from "./CategoryAnswer";
 import FillInTheGapAnswer from "./FillInTheGapAnswer";
 import ComprehensionAnswer from "./ComprehensionAnswer";
 import Footer from "../Footer";
+import Countdown from "./Cowndown";
+import { Link } from "react-router-dom";
 
 const Answer = () => {
   return (
     <div>
       <Navbar />
-      <h1 className="text-3xl font-bold text-center">
-        Take a Short Skill Test
-      </h1>
-      <p className="text-center">
-        Test and evaluate your skills in this short assessment.
-      </p>
+      <Countdown />
+
       <CategoryAnswer />
       <FillInTheGapAnswer />
       <ComprehensionAnswer />
@@ -22,9 +20,12 @@ const Answer = () => {
         <button className="btn text-white hover:bg-black hover:text-white bg-[#008060] me-2">
           Save
         </button>
-        <button className="btn hover:bg-black text-[#008060] btn-outline">
+        <Link
+          to="/QuizCompletion"
+          className="btn hover:bg-black text-[#008060] btn-outline"
+        >
           Save & Continue
-        </button>
+        </Link>
       </div>
       <Footer />
     </div>
